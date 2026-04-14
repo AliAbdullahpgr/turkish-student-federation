@@ -19,19 +19,6 @@
   --ambient-shadow: 0 20px 40px rgba(0, 33, 20, 0.06);
 }
 
-.dark {
-  --background: #0f1a14;
-  --foreground: #e4e4e4;
-  --surface: #0f1a14;
-  --surface-low: #162018;
-  --surface-high: #1e2b22;
-  --surface-lowest: #0a120e;
-  --surface-variant: #283830;
-  --outline: #8a9b90;
-  --outline-variant: #3a4f42;
-  --muted: #a8b5ac;
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -295,7 +282,7 @@ input::placeholder {
 
 .hero-accent-text {
   font-style: italic;
-  text-shadow: 0 4px 24px rgba(201, 168, 76, 0.3);
+  text-shadow: 0 4px 24px rgba(122, 218, 161, 0.3);
 }
 
 .glass-panel {

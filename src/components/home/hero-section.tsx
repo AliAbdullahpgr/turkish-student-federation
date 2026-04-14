@@ -29,7 +29,7 @@ export function HeroSection({
             <h1 className="reveal-up reveal-delay-2 max-w-3xl font-headline text-[2.75rem] font-extrabold leading-[0.96] tracking-[-0.07em] text-white sm:text-[3.5rem] md:text-6xl lg:text-7xl">
               {hero.headlineStart}
               <br />
-              <span className="hero-accent-text text-[#c9a84c]">{hero.headlineAccent}</span>
+              <span className="hero-accent-text text-secondary-fixed-dim">{hero.headlineAccent}</span>
               <br />
               {hero.headlineEnd}
             </h1>

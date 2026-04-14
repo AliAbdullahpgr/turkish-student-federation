@@ -1,10 +1,8 @@
 import type { HomePageContent } from "@/app/home-content";
 import { BackToTop } from "./back-to-top";
-import { DarkModeToggle } from "./dark-mode-toggle";
 import { CredibilitySection } from "./credibility-section";
 import { CurriculumSection } from "./curriculum-section";
 import { FeaturedVideoSection } from "./featured-video-section";
-import { GallerySection } from "./gallery-section";
 import { HomeFooter } from "./home-footer";
 import { HomeHeader } from "./home-header";
 import { HeroSection } from "./hero-section";
@@ -56,14 +54,12 @@ export function HomePage({ content }: { content: HomePageContent }) {
         <WaveDivider fromColor="var(--surface-low)" toColor="#003623" />
         <ImpactSection impact={impact} />
         <WaveDivider flip fromColor="var(--background)" toColor="#002c1d" />
-        <GallerySection />
         <FeaturedVideoSection featuredVideo={featuredVideo} />
         <NewsletterSection newsletter={newsletter} />
       </main>
 
       <HomeFooter brandName={brand.name} footer={footer} shortName={brand.shortName} />
       <BackToTop />
-      <DarkModeToggle />
     </>
   );
 }

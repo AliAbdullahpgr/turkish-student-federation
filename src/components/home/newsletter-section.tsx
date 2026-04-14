@@ -29,7 +29,7 @@ export function NewsletterSection({
             type="email"
           />
           <button
-            className="button-sheen hover-lift inline-flex w-full items-center justify-center rounded-full bg-[#c9a84c] px-8 py-4 font-headline text-sm font-bold text-primary shadow-[0_18px_36px_rgba(0,33,20,0.2)] hover:bg-[#d4b85c] sm:w-auto"
+            className="button-sheen hover-lift inline-flex w-full items-center justify-center rounded-full bg-secondary-fixed-dim px-8 py-4 font-headline text-sm font-bold text-primary shadow-[0_18px_36px_rgba(0,33,20,0.2)] hover:bg-[#8ee8b3] sm:w-auto"
             type="button"
           >
             {newsletter.ctaLabel}

@@ -101,7 +101,7 @@ export function HomeHeader({
               {announcement.text}
             </p>
             <a
-              className="inline-flex items-center justify-center rounded bg-[#c9a84c] px-3 py-1 font-label text-[0.65rem] font-bold uppercase tracking-wider text-primary shadow-sm hover:bg-[#d4b85c] sm:px-4"
+              className="inline-flex items-center justify-center rounded bg-secondary-fixed-dim px-3 py-1 font-label text-[0.65rem] font-bold uppercase tracking-wider text-primary shadow-sm hover:bg-[#8ee8b3] sm:px-4"
               href="#join"
             >
               {announcement.ctaLabel}

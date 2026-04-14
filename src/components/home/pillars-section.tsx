@@ -13,7 +13,7 @@ export function PillarsSection({
           <h2 className="font-headline text-[2.2rem] font-extrabold tracking-[-0.05em] text-primary sm:text-4xl md:text-[2.8rem]">
             {pillars.title}
           </h2>
-          <div className="mt-4 h-1 w-20 rounded-full bg-[#c9a84c] sm:mt-5" />
+          <div className="mt-4 h-1 w-20 rounded-full bg-secondary sm:mt-5" />
         </div>
 
         <div className="grid gap-4 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
