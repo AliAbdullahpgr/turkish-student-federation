@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import type { HomePageContent } from "@/app/home-content";
 import { ActionLink, SectionFrame } from "./primitives";
+import { Parallax } from "./animated";
 
 export function HeroSection({
   hero,
@@ -9,7 +12,9 @@ export function HeroSection({
 }) {
   return (
     <section className="relative overflow-hidden bg-[linear-gradient(135deg,var(--primary),var(--primary-container))] pb-24 pt-14 text-white sm:pb-28 sm:pt-18 md:pb-36 md:pt-24 lg:min-h-216 lg:pt-28">
-      <div className="hero-texture absolute inset-0" />
+      <Parallax speed={0.15} className="absolute inset-0">
+        <div className="hero-texture absolute inset-0" />
+      </Parallax>
       <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-[radial-gradient(circle_at_center,rgba(122,218,161,0.22),transparent_55%)] lg:block" />
 
       <SectionFrame className="relative z-10">

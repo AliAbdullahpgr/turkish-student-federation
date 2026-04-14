@@ -1,7 +1,10 @@
 import type { HomePageContent } from "@/app/home-content";
+import { BackToTop } from "./back-to-top";
+import { DarkModeToggle } from "./dark-mode-toggle";
 import { CredibilitySection } from "./credibility-section";
 import { CurriculumSection } from "./curriculum-section";
 import { FeaturedVideoSection } from "./featured-video-section";
+import { GallerySection } from "./gallery-section";
 import { HomeFooter } from "./home-footer";
 import { HomeHeader } from "./home-header";
 import { HeroSection } from "./hero-section";
@@ -9,8 +12,11 @@ import { ImpactSection } from "./impact-section";
 import { LeadershipSection } from "./leadership-section";
 import { MissionSection } from "./mission-section";
 import { NewsletterSection } from "./newsletter-section";
+import { PartnersSection } from "./partners-section";
 import { PillarsSection } from "./pillars-section";
+import { TestimonialsSection } from "./testimonials-section";
 import { UpdatesSection } from "./updates-section";
+import { WaveDivider } from "./wave-divider";
 import { WhyJoinSection } from "./why-join-section";
 
 export function HomePage({ content }: { content: HomePageContent }) {
@@ -41,16 +47,23 @@ export function HomePage({ content }: { content: HomePageContent }) {
         <CredibilitySection credibility={credibility} />
         <MissionSection mission={mission} />
         <LeadershipSection leadership={leadership} />
+        <PartnersSection />
         <WhyJoinSection whyJoin={whyJoin} />
         <CurriculumSection curriculum={curriculum} />
+        <TestimonialsSection />
         <UpdatesSection newsletterId={newsletter.id} updates={updates} />
         <PillarsSection pillars={pillars} />
+        <WaveDivider fromColor="var(--surface-low)" toColor="#003623" />
         <ImpactSection impact={impact} />
+        <WaveDivider flip fromColor="var(--background)" toColor="#002c1d" />
+        <GallerySection />
         <FeaturedVideoSection featuredVideo={featuredVideo} />
         <NewsletterSection newsletter={newsletter} />
       </main>
 
       <HomeFooter brandName={brand.name} footer={footer} shortName={brand.shortName} />
+      <BackToTop />
+      <DarkModeToggle />
     </>
   );
 }

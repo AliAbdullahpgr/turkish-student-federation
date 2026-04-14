@@ -19,6 +19,19 @@
   --ambient-shadow: 0 20px 40px rgba(0, 33, 20, 0.06);
 }
 
+.dark {
+  --background: #0f1a14;
+  --foreground: #e4e4e4;
+  --surface: #0f1a14;
+  --surface-low: #162018;
+  --surface-high: #1e2b22;
+  --surface-lowest: #0a120e;
+  --surface-variant: #283830;
+  --outline: #8a9b90;
+  --outline-variant: #3a4f42;
+  --muted: #a8b5ac;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -298,6 +311,74 @@ input::placeholder {
 
 .editorial-shadow {
   box-shadow: var(--hero-shadow);
+}
+
+/* ── Marquee ─────────────────────────────────────────────────── */
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 35s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Gradient border hover ───────────────────────────────────── */
+
+.gradient-border-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.gradient-border-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-fixed-dim), var(--secondary));
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  pointer-events: none;
+}
+
+.gradient-border-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Image shimmer ───────────────────────────────────────────── */
+
+@keyframes shimmer-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.img-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--surface-high) 25%,
+    var(--surface-variant) 50%,
+    var(--surface-high) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-loading 1.5s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

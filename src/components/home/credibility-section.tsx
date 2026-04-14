@@ -13,7 +13,7 @@ export function CredibilitySection({
           {credibility.items.map((item, index) => (
             <article
               key={item.label}
-              className={`paper-panel spotlight-card hover-lift reveal-up rounded-2xl border border-[rgba(0,54,35,0.06)] px-5 py-5 reveal-delay-${index + 1}`}
+              className={`paper-panel spotlight-card gradient-border-card hover-lift reveal-up rounded-2xl border border-[rgba(0,54,35,0.06)] px-5 py-5 reveal-delay-${index + 1}`}
             >
               <p className="font-headline text-3xl font-extrabold tracking-[-0.05em] text-primary">
                 {item.value}
