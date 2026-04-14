@@ -7,9 +7,11 @@ import { MaterialIcon, SectionFrame, cx } from "./primitives";
 export function HomeHeader({
   brand,
   navigation,
+  announcement,
 }: {
   brand: HomePageContent["brand"];
   navigation: HomeNavItem[];
+  announcement: HomePageContent["announcement"];
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -18,79 +20,114 @@ export function HomeHeader({
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[rgba(252,249,248,0.86)] backdrop-blur-xl">
-      <SectionFrame>
-        <div className="flex items-center justify-between gap-4 py-4">
-          <a
-            className="font-headline text-xl font-extrabold tracking-[-0.04em] text-primary sm:text-2xl"
-            href="#top"
-            onClick={closeMenu}
-          >
-            {brand.name}
-          </a>
+    <header className="sticky top-0 z-50">
+      {/* Announcement Bar */}
+      <div className="bg-primary text-white">
+        <SectionFrame>
+          <div className="flex items-center justify-center gap-4 py-2 text-center">
+            <p className="font-label text-xs tracking-wide sm:text-sm">
+              {announcement.text}
+            </p>
+            <a
+              className="inline-flex items-center justify-center rounded bg-[#c9a84c] px-3 py-1 font-label text-[0.65rem] font-bold uppercase tracking-wider text-primary shadow-sm hover:bg-[#d4b85c] sm:px-4"
+              href="#join"
+            >
+              {announcement.ctaLabel}
+            </a>
+          </div>
+        </SectionFrame>
+      </div>
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
-            {navigation.map((item) => (
+      {/* Main Navigation */}
+      <div className="border-b border-white/10 bg-[#0a4a2e] backdrop-blur-xl">
+        <SectionFrame>
+          <div className="flex items-center justify-between gap-4 py-3">
+            {/* Logo / Brand */}
+            <a
+              className="flex items-center gap-3"
+              href="#top"
+              onClick={closeMenu}
+            >
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-secondary-fixed-dim/40 bg-white/10 sm:h-11 sm:w-11">
+                <span className="font-headline text-sm font-extrabold text-secondary-fixed-dim sm:text-base">
+                  {brand.shortName}
+                </span>
+              </div>
+            </a>
+
+            {/* Desktop Nav */}
+            <nav aria-label="Primary" className="hidden items-center gap-1 lg:flex">
+              {navigation.map((item) => (
+                <a
+                  key={item.label}
+                  className="inline-flex items-center gap-1 rounded-md px-3 py-2 font-label text-sm font-medium text-white/85 transition-colors hover:bg-white/10 hover:text-white"
+                  href={item.href}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <MaterialIcon className="h-3.5 w-3.5 opacity-60" name="chevron_down" />
+                  )}
+                </a>
+              ))}
+            </nav>
+
+            {/* Desktop CTA */}
+            <div className="hidden lg:block">
               <a
-                key={item.label}
-                className="font-label text-sm font-medium tracking-wide text-muted hover:text-primary"
-                href={item.href}
+                className="button-sheen inline-flex items-center justify-center rounded-full bg-secondary px-5 py-2.5 font-label text-sm font-semibold text-white shadow-[0_8px_20px_rgba(0,33,20,0.3)] hover:bg-[#008050]"
+                href="#join"
               >
-                {item.label}
+                {brand.ctaLabel}
               </a>
-            ))}
-          </nav>
+            </div>
 
-          <div className="hidden md:block">
+            {/* Mobile Toggle */}
             <button
-              className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2.5 font-label text-sm font-semibold text-white shadow-[0_16px_32px_rgba(0,33,20,0.14)] hover:-translate-y-0.5 hover:bg-primary-container"
+              aria-controls="mobile-nav"
+              aria-expanded={isMenuOpen}
+              aria-label="Toggle navigation menu"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white lg:hidden"
+              onClick={() => setIsMenuOpen((open) => !open)}
               type="button"
             >
-              {brand.ctaLabel}
+              <MaterialIcon name={isMenuOpen ? "close" : "menu"} />
             </button>
           </div>
+        </SectionFrame>
 
-          <button
-            aria-controls="mobile-nav"
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle navigation menu"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/85 text-primary shadow-[0_12px_24px_rgba(0,33,20,0.08)] md:hidden"
-            onClick={() => setIsMenuOpen((open) => !open)}
-            type="button"
-          >
-            <MaterialIcon name={isMenuOpen ? "close" : "menu"} />
-          </button>
-        </div>
-      </SectionFrame>
-
-      <div
-        className={cx(
-          "overflow-hidden border-t border-[rgba(0,54,35,0.08)] bg-surface-low transition-[max-height,opacity] duration-200 md:hidden",
-          isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
-        )}
-        id="mobile-nav"
-      >
-        <SectionFrame className="py-4">
-          <nav aria-label="Mobile primary" className="flex flex-col gap-2">
-            {navigation.map((item) => (
+        {/* Mobile Nav */}
+        <div
+          className={cx(
+            "overflow-hidden border-t border-white/10 transition-[max-height,opacity,transform] duration-300 lg:hidden",
+            isMenuOpen ? "max-h-120 translate-y-0 opacity-100" : "max-h-0 -translate-y-2 opacity-0",
+          )}
+          id="mobile-nav"
+        >
+          <SectionFrame className="py-4">
+            <nav aria-label="Mobile primary" className="flex flex-col gap-1">
+              {navigation.map((item) => (
+                <a
+                  key={item.label}
+                  className="flex items-center justify-between rounded-xl px-4 py-3 font-label text-sm font-medium text-white/85 hover:bg-white/10 hover:text-white"
+                  href={item.href}
+                  onClick={closeMenu}
+                >
+                  {item.label}
+                  {item.hasDropdown && (
+                    <MaterialIcon className="h-4 w-4 opacity-50" name="chevron_down" />
+                  )}
+                </a>
+              ))}
               <a
-                key={item.label}
-                className="rounded-2xl px-4 py-3 font-label text-sm font-medium tracking-wide text-primary hover:bg-white/80"
-                href={item.href}
+                className="button-sheen mt-3 inline-flex items-center justify-center rounded-full bg-secondary px-5 py-3 font-label text-sm font-semibold text-white"
+                href="#join"
                 onClick={closeMenu}
               >
-                {item.label}
+                {brand.ctaLabel}
               </a>
-            ))}
-            <button
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 font-label text-sm font-semibold text-white"
-              onClick={closeMenu}
-              type="button"
-            >
-              {brand.ctaLabel}
-            </button>
-          </nav>
-        </SectionFrame>
+            </nav>
+          </SectionFrame>
+        </div>
       </div>
     </header>
   );

@@ -2,11 +2,17 @@ import Image from "next/image";
 import type { HomePageContent, StoryItem } from "@/app/home-content";
 import { SectionFrame } from "./primitives";
 
-function StoryCard({ story }: { story: StoryItem }) {
+function StoryCard({
+  story,
+  delayClass,
+}: {
+  story: StoryItem;
+  delayClass: string;
+}) {
   return (
-    <article className="group">
+    <article className={`group hover-lift reveal-up ${delayClass}`}>
       {story.image ? (
-        <div className="editorial-shadow relative mb-5 aspect-[4/3] overflow-hidden rounded-[1.45rem] bg-surface-high sm:mb-6 sm:rounded-[1.65rem]">
+        <div className="editorial-shadow spotlight-card relative mb-5 aspect-4/3 overflow-hidden rounded-2xl bg-surface-high sm:mb-6">
           <Image
             fill
             alt={story.image.alt}
@@ -16,7 +22,7 @@ function StoryCard({ story }: { story: StoryItem }) {
           />
         </div>
       ) : (
-        <div className="editorial-shadow relative mb-5 aspect-[4/3] overflow-hidden rounded-[1.45rem] bg-[linear-gradient(135deg,var(--primary),var(--primary-container))] sm:mb-6 sm:rounded-[1.65rem]">
+        <div className="editorial-shadow spotlight-card relative mb-5 aspect-4/3 overflow-hidden rounded-2xl bg-[linear-gradient(135deg,var(--primary),var(--primary-container))] sm:mb-6">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(122,218,161,0.24),transparent_36%)]" />
           <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-8">
             <p className="max-w-[18rem] text-center font-headline text-xl font-bold leading-tight text-white sm:text-2xl">
@@ -33,7 +39,7 @@ function StoryCard({ story }: { story: StoryItem }) {
         {story.title}
       </h3>
       <p className="mb-6 text-sm leading-7 text-muted">{story.excerpt}</p>
-      <div className="flex items-center gap-3 text-[0.68rem] font-label uppercase tracking-[0.22em] text-outline">
+      <div className="flex items-center gap-3 font-label text-[0.68rem] uppercase tracking-[0.22em] text-outline">
         <span>{story.date}</span>
         <span aria-hidden="true">{"\u2022"}</span>
         <span>{story.readTime}</span>
@@ -54,6 +60,9 @@ export function UpdatesSection({
       <SectionFrame>
         <div className="mb-12 flex flex-col gap-4 md:mb-16 md:flex-row md:items-end md:justify-between">
           <div>
+            <p className="mb-3 font-label text-[0.68rem] uppercase tracking-[0.3em] text-secondary sm:mb-4">
+              {updates.eyebrow}
+            </p>
             <h2 className="font-headline text-[2.2rem] font-extrabold tracking-[-0.05em] text-primary sm:text-4xl md:text-[2.8rem]">
               {updates.title}
             </h2>
@@ -68,8 +77,12 @@ export function UpdatesSection({
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {updates.items.map((story) => (
-            <StoryCard key={story.title} story={story} />
+          {updates.items.map((story, index) => (
+            <StoryCard
+              key={story.title}
+              delayClass={`reveal-delay-${index + 1}`}
+              story={story}
+            />
           ))}
         </div>
       </SectionFrame>

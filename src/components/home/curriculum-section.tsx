@@ -11,12 +11,12 @@ export function CurriculumSection({
     <section className="bg-surface-low py-20 sm:py-24 md:py-32" id={curriculum.id}>
       <SectionFrame>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center lg:gap-14">
-          <div>
+          <div className="reveal-up reveal-delay-1">
             <h2 className="font-headline text-[2.2rem] font-extrabold tracking-[-0.05em] text-primary sm:text-4xl md:text-[2.8rem]">
               {curriculum.title}
             </h2>
             <p className="mt-6 max-w-xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
-              Comprehensive courses by{" "}
+              Built with guidance from{" "}
               <span className="font-semibold text-primary">{curriculum.instructor}</span>.{" "}
               {curriculum.description}
             </p>
@@ -31,7 +31,7 @@ export function CurriculumSection({
             </div>
 
             <button
-              className="mt-8 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-3.5 font-headline text-sm font-bold text-white shadow-[0_18px_36px_rgba(0,33,20,0.15)] hover:-translate-y-0.5 hover:bg-primary-container sm:mt-10 sm:w-auto"
+              className="button-sheen hover-lift mt-8 inline-flex w-full items-center justify-center rounded-full bg-primary px-8 py-3.5 font-headline text-sm font-bold text-white shadow-[0_18px_36px_rgba(0,33,20,0.15)] hover:bg-primary-container sm:mt-10 sm:w-auto"
               type="button"
             >
               {curriculum.ctaLabel}
@@ -39,12 +39,12 @@ export function CurriculumSection({
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {curriculum.items.map((item) => (
+            {curriculum.items.map((item, index) => (
               <article
                 key={item.title}
-                className="paper-panel overflow-hidden rounded-[1.45rem] p-3 sm:rounded-[1.7rem]"
+                className={`paper-panel spotlight-card hover-lift reveal-up overflow-hidden rounded-2xl p-3 reveal-delay-${index + 2}`}
               >
-                <div className="relative mb-5 aspect-[4/3] overflow-hidden rounded-[1.1rem] bg-surface-high sm:rounded-[1.2rem]">
+                <div className="relative mb-5 aspect-4/3 overflow-hidden rounded-xl bg-surface-high">
                   <Image
                     fill
                     alt={item.image.alt}

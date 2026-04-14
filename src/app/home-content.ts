@@ -1,6 +1,7 @@
 export type HomeNavItem = {
   label: string;
   href: string;
+  hasDropdown?: boolean;
 };
 
 export type HomeImage = {
@@ -14,6 +15,10 @@ export type HeroAction = {
   variant: "primary" | "secondary";
 };
 
+export type HeroActivity = {
+  label: string;
+};
+
 export type PillarItem = {
   icon: string;
   title: string;
@@ -21,8 +26,21 @@ export type PillarItem = {
 };
 
 export type StatItem = {
+  icon: string;
   value: string;
   label: string;
+};
+
+export type CredibilityItem = {
+  value: string;
+  label: string;
+  detail: string;
+};
+
+export type WhyJoinItem = {
+  icon: string;
+  title: string;
+  description: string;
 };
 
 export type StoryItem = {
@@ -46,9 +64,21 @@ export type FooterGroup = {
   links: string[];
 };
 
+export type LeadershipItem = {
+  name: string;
+  title: string;
+  description: string;
+  image: HomeImage;
+};
+
 export type HomePageContent = {
+  announcement: {
+    text: string;
+    ctaLabel: string;
+  };
   brand: {
     name: string;
+    shortName: string;
     ctaLabel: string;
   };
   navigation: HomeNavItem[];
@@ -59,9 +89,18 @@ export type HomePageContent = {
     headlineEnd: string;
     description: string;
     actions: HeroAction[];
-    image: HomeImage;
+    activities: HeroActivity[];
+    images: HomeImage[];
     statValue: string;
     statLabel: string;
+    dateLine: string;
+  };
+  credibility: {
+    eyebrow: string;
+    title: string;
+    items: CredibilityItem[];
+    quote: string;
+    quoteAttribution: string;
   };
   mission: {
     eyebrow: string;
@@ -70,12 +109,32 @@ export type HomePageContent = {
     paragraphs: string[];
     image: HomeImage;
   };
+  leadership: {
+    id: string;
+    eyebrow: string;
+    titleStart: string;
+    titleAccent: string;
+    leader: LeadershipItem;
+  };
   pillars: {
     title: string;
     items: PillarItem[];
   };
+  whyJoin: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    items: WhyJoinItem[];
+    highlightTitle: string;
+    highlightText: string;
+    chips: string[];
+  };
   impact: {
     id: string;
+    eyebrow: string;
+    titleStart: string;
+    titleAccent: string;
     items: StatItem[];
   };
   featuredVideo: {
@@ -85,9 +144,11 @@ export type HomePageContent = {
     description: string;
     image: HomeImage;
     ctaLabel: string;
+    tags: string[];
   };
   updates: {
     id: string;
+    eyebrow: string;
     title: string;
     description: string;
     ctaLabel: string;
@@ -120,33 +181,84 @@ export type HomePageContent = {
 };
 
 export const homePageContent: HomePageContent = {
+  announcement: {
+    text: "Join the movement \u2014 Turkish Student Federation",
+    ctaLabel: "JOIN US",
+  },
   brand: {
     name: "Turkish Student Federation",
-    ctaLabel: "Join the Federation",
+    shortName: "TSF",
+    ctaLabel: "Join Us",
   },
   navigation: [
-    { label: "Programs", href: "#curriculum" },
-    { label: "Impact", href: "#impact" },
-    { label: "Community", href: "#community" },
-    { label: "Resources", href: "#resources" },
+    { label: "Home", href: "#top" },
+    { label: "About Us", href: "#leadership", hasDropdown: true },
+    { label: "Events", href: "#community" },
+    { label: "Get Involved", href: "#why-join", hasDropdown: true },
+    { label: "News & Blogs", href: "#community" },
+    { label: "Literature", href: "#resources", hasDropdown: true },
+    { label: "Contact US", href: "#join" },
   ],
   hero: {
     eyebrow: "Students, Culture, Leadership",
-    headlineStart: "Building a stronger",
-    headlineAccent: "Turkish Student",
-    headlineEnd: "community.",
+    headlineStart: "Building a",
+    headlineAccent: "Stronger",
+    headlineEnd: "Community",
     description:
-      "The Turkish Student Federation connects students through academic support, leadership development, cultural programs, and a strong community network designed to help members thrive on campus and beyond.",
+      "Turn your campus years into an adventure of leadership, learning, and lasting friendships. The Turkish Student Federation connects you to a powerful student network.",
     actions: [
       { label: "Explore Programs", href: "#curriculum", variant: "primary" },
       { label: "See Our Impact", href: "#impact", variant: "secondary" },
     ],
-    image: {
-      src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDITwyjDQCGI1TqgrNqO8RklWIpmaLkhS6LqL9VqHkE3t1YBITn0DF8Gv-Gvxc4HryjgyloJiCCOF7ZXHdWcO1iAc8SxswA58Ie6IOMMNqk8-ywxkXbdB-JFyb8pNyMuj3E07qddM9qlidi4fnZN3pzdbAqtptoWbQ5rvaQWoBLG3x7KMbbfek95ESgdWVhVs_khEfd8T7boHUFc7COjzVMGAvYsZaNwgCnQPe7dnIj6U9DWEeevQZA7ULmFcRTO-HBDyO3XrS1xQ",
-      alt: "Academic leadership conference with students attending a seminar in a modern hall.",
-    },
+    activities: [
+      { label: "Seminars" },
+      { label: "Leadership" },
+      { label: "Community" },
+      { label: "Mentorship" },
+      { label: "Workshops" },
+      { label: "Advocacy" },
+    ],
+    images: [
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDITwyjDQCGI1TqgrNqO8RklWIpmaLkhS6LqL9VqHkE3t1YBITn0DF8Gv-Gvxc4HryjgyloJiCCOF7ZXHdWcO1iAc8SxswA58Ie6IOMMNqk8-ywxkXbdB-JFyb8pNyMuj3E07qddM9qlidi4fnZN3pzdbAqtptoWbQ5rvaQWoBLG3x7KMbbfek95ESgdWVhVs_khEfd8T7boHUFc7COjzVMGAvYsZaNwgCnQPe7dnIj6U9DWEeevQZA7ULmFcRTO-HBDyO3XrS1xQ",
+        alt: "Academic leadership conference with students attending a seminar in a modern hall.",
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAIzu76_U9WWpm_MbssbQxKfoR7FgqgdJhfQzw-G-SdvXyYFYq2BYYq_7iAu4GCM5L3F4hkmDNW3Bcniak0LMbR0J73fEPe5DH3ehQoKn1xg1tvacu1QRn1oLZ-lz17hUBOYvNoZ2jyS1tCtzc5ZgPAVS3zlO6ZDs38SudBuiPdYFe0Hmub__O6uJoWYQf7GOV1xlWKdzqvLibrAUo_YBz5VYJ8kpUoWudOpsbjHSoH-lS5Q0lYyiad9JHydj8LZTpxWVI6FLKzkg",
+        alt: "Community volunteers collaborating on a social impact initiative.",
+      },
+      {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuD1ss4dLkcYvG7JBUCPIq1A_9lx1IrbYsnFcQUP81JN23DxWHo6NjPGq4LLU8WRd6W8k66xTpnTeW3y-s8thyncbKt3UaaIGVkoaP3-i_CIPSYiJd0HeXDS00ftZLznZm3lVmGLZkSvdPiCHix41Q99wWLlox1Lqr18KCuR9NyFqi-O1YFslSdU__Iss2momwK1wxzsw9yyeUlo2UOk_9NrjTLm6Zx4hsvTeSi2sv11VS3U0pGcndz3vxePlx63BfRnZjHuKP5wUQ",
+        alt: "Students in a university lecture hall engaged in discussion.",
+      },
+    ],
     statValue: "12k+",
     statLabel: "Students and Alumni Reached",
+    dateLine: "Est. 2018",
+  },
+  credibility: {
+    eyebrow: "Why Students Trust Us",
+    title: "A federation shaped around belonging, growth, and visible student outcomes.",
+    items: [
+      {
+        value: "35+",
+        label: "Active student circles",
+        detail: "Campus-based communities that keep members connected year-round.",
+      },
+      {
+        value: "120+",
+        label: "Mentors and organizers",
+        detail: "Students, alumni, and volunteers helping members navigate academics and leadership.",
+      },
+      {
+        value: "18",
+        label: "Flagship events yearly",
+        detail: "Summits, socials, workshops, and service initiatives across the calendar.",
+      },
+    ],
+    quote:
+      "Students do not join only for events. They stay because the federation gives them people, direction, and a place to belong.",
+    quoteAttribution: "Community-led, student-first model",
   },
   mission: {
     eyebrow: "Our Mission & Vision",
@@ -159,6 +271,22 @@ export const homePageContent: HomePageContent = {
     image: {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAIzu76_U9WWpm_MbssbQxKfoR7FgqgdJhfQzw-G-SdvXyYFYq2BYYq_7iAu4GCM5L3F4hkmDNW3Bcniak0LMbR0J73fEPe5DH3ehQoKn1xg1tvacu1QRn1oLZ-lz17hUBOYvNoZ2jyS1tCtzc5ZgPAVS3zlO6ZDs38SudBuiPdYFe0Hmub__O6uJoWYQf7GOV1xlWKdzqvLibrAUo_YBz5VYJ8kpUoWudOpsbjHSoH-lS5Q0lYyiad9JHydj8LZTpxWVI6FLKzkg",
       alt: "Community volunteers collaborating on a social impact initiative.",
+    },
+  },
+  leadership: {
+    id: "leadership",
+    eyebrow: "Leadership",
+    titleStart: "Our",
+    titleAccent: "President",
+    leader: {
+      name: "Ahmet Yilmaz",
+      title: "President, Turkish Student Federation",
+      description:
+        "Ahmet Yilmaz has served as President of the Turkish Student Federation since 2023. A graduate student in Political Science, Ahmet is known for his active role in student leadership, community service, and fostering youth engagement through the Federation\u2019s programs and initiatives across campuses nationwide.",
+      image: {
+        src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBITqocON7c0fCeyQI1HhIa2gCUm0tJwYsfIrrz2jcsQiqjcHCgxCCaGkv2_k6ZQNQbOgESWb7M9ps7z6vHWrPF-ZMi7ouKbz_XxWddebIgEM8qnPV4_0sFve9IRpmuoYfmAiHcihgIvPf5DR5dRQxIBhgugrZ9v07BKrt2OkL6mgLEBENvinX2rmitr-1qpharV55DX8y0GGGCU5-c_hJuHdM4-ge8NyzvZIDXaU0ATAqwMm6lRVzSmdKLB_fk5RLtTtQzFMra6A",
+        alt: "Portrait of President Ahmet Yilmaz speaking at a federation event.",
+      },
     },
   },
   pillars: {
@@ -202,32 +330,68 @@ export const homePageContent: HomePageContent = {
       },
     ],
   },
+  whyJoin: {
+    id: "why-join",
+    eyebrow: "Why Join",
+    title: "More than a student club. A network that helps members find footing fast.",
+    description:
+      "The federation should make student life easier, more ambitious, and more connected. These are the outcomes people should feel after joining.",
+    items: [
+      {
+        icon: "groups",
+        title: "Find your people quickly",
+        description:
+          "Join a community that makes it easier to build friendships, integrate into campus life, and feel represented from the beginning.",
+      },
+      {
+        icon: "school",
+        title: "Grow beyond the classroom",
+        description:
+          "Access mentorship, workshops, and peer guidance that help you develop leadership confidence and practical direction.",
+      },
+      {
+        icon: "award",
+        title: "Be part of visible work",
+        description:
+          "Contribute to events, media, service, and student initiatives that create tangible impact and strengthen your experience.",
+      },
+    ],
+    highlightTitle: "A stronger student story",
+    highlightText:
+      "When the frontend communicates value clearly, the federation stops feeling like a generic organization page and starts feeling like an active student home base.",
+    chips: ["Mentorship", "Events", "Representation", "Community"],
+  },
   impact: {
     id: "impact",
+    eyebrow: "Our Reach",
+    titleStart: "Impact",
+    titleAccent: "Highlights",
     items: [
-      { value: "200+", label: "Student Sessions Hosted" },
-      { value: "100k+", label: "Event Reach" },
-      { value: "5k+", label: "Students Supported" },
-      { value: "20+", label: "Community Campaigns" },
-      { value: "130+", label: "Campus Partnerships" },
-      { value: "12k+", label: "Federation Network" },
+      { icon: "auto_stories", value: "200+", label: "Weekly Study Sessions" },
+      { icon: "groups", value: "100,000+", label: "Attendees in Seminars" },
+      { icon: "hand_coins", value: "5,000+", label: "Students Supported" },
+      { icon: "volunteer_activism", value: "20+", label: "Community Campaigns" },
+      { icon: "building", value: "130+", label: "Universities Engaged" },
+      { icon: "award", value: "12,000+", label: "Active Volunteers" },
     ],
   },
   featuredVideo: {
     id: "resources",
-    eyebrow: "Featured Federation Story",
+    eyebrow: "Latest Release",
     title: "Inside the Turkish Student Federation",
     description:
       "A closer look at the students, mentors, events, and initiatives shaping the Turkish Student Federation across campuses and communities.",
     image: {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBITqocON7c0fCeyQI1HhIa2gCUm0tJwYsfIrrz2jcsQiqjcHCgxCCaGkv2_k6ZQNQbOgESWb7M9ps7z6vHWrPF-ZMi7ouKbz_XxWddebIgEM8qnPV4_0sFve9IRpmuoYfmAiHcihgIvPf5DR5dRQxIBhgugrZ9v07BKrt2OkL6mgLEBENvinX2rmitr-1qpharV55DX8y0GGGCU5-c_hJuHdM4-ge8NyzvZIDXaU0ATAqwMm6lRVzSmdKLB_fk5RLtTtQzFMra6A",
-      alt: "Scholar speaking in a cinematic studio setting for the Taleem Se Takmeel series.",
+      alt: "Scholar speaking in a cinematic studio setting for the federation story series.",
     },
-    ctaLabel: "Watch the Story",
+    ctaLabel: "Follow Youtube Channel",
+    tags: ["Student Voices", "Seminar", "Youth Impact"],
   },
   updates: {
     id: "community",
-    title: "Latest Updates",
+    eyebrow: "Media & News",
+    title: "Read Our Latest Updates",
     description: "News, events, and highlights from the federation community.",
     ctaLabel: "View More Updates",
     items: [

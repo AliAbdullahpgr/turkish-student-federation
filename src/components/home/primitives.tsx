@@ -2,7 +2,10 @@ import type { ReactNode } from "react";
 import type { LucideProps } from "lucide-react";
 import {
   Award,
+  Building2,
   BookOpenText,
+  CalendarRange,
+  ChevronDown,
   CirclePlay,
   Film,
   Globe,
@@ -44,6 +47,7 @@ const iconMap: Record<string, React.ComponentType<LucideProps>> = {
   auto_stories: BookOpenText,
   balance: Scale,
   call: Phone,
+  chevron_down: ChevronDown,
   close: X,
   groups: Users,
   menu: Menu,
@@ -56,7 +60,10 @@ const iconMap: Record<string, React.ComponentType<LucideProps>> = {
   volunteer_activism: HeartHandshake,
   school: GraduationCap,
   award: Award,
+  building: Building2,
+  calendar: CalendarRange,
   hand_coins: HandCoins,
+  youtube: CirclePlay,
 };
 
 export function MaterialIcon({
@@ -83,7 +90,7 @@ export function ActionLink({
   className: string;
 }) {
   const sharedClassName = cx(
-    "inline-flex items-center justify-center rounded-full px-6 py-3.5 font-headline text-sm font-bold tracking-tight md:px-8 md:text-base",
+    "button-sheen hover-lift inline-flex items-center justify-center rounded-full px-6 py-3.5 font-headline text-sm font-bold tracking-tight md:px-8 md:text-base",
     className,
   );
 

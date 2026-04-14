@@ -50,8 +50,8 @@ html {
 body {
   min-height: 100vh;
   background:
-    radial-gradient(circle at top left, rgba(122, 218, 161, 0.1), transparent 28%),
-    radial-gradient(circle at bottom right, rgba(1, 79, 53, 0.08), transparent 24%),
+    radial-gradient(circle at top left, rgba(122, 218, 161, 0.08), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(1, 79, 53, 0.06), transparent 24%),
     var(--surface);
   color: var(--foreground);
   font-family: var(--font-work-sans), sans-serif;
@@ -64,10 +64,10 @@ body::before {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(0, 54, 35, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 54, 35, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(0, 54, 35, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 54, 35, 0.02) 1px, transparent 1px);
   background-size: 24px 24px;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.24), transparent 45%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent 40%);
 }
 
 a,
@@ -94,11 +94,195 @@ input::placeholder {
   color: rgba(64, 73, 67, 0.72);
 }
 
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes float-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+}
+
+@keyframes soft-pulse {
+  0%,
+  100% {
+    box-shadow: var(--ambient-shadow);
+  }
+
+  50% {
+    box-shadow: 0 28px 52px rgba(0, 33, 20, 0.12);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.reveal-up {
+  opacity: 0;
+  animation: reveal-up 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal-delay-1 {
+  --reveal-delay: 80ms;
+}
+
+.reveal-delay-2 {
+  --reveal-delay: 160ms;
+}
+
+.reveal-delay-3 {
+  --reveal-delay: 240ms;
+}
+
+.reveal-delay-4 {
+  --reveal-delay: 320ms;
+}
+
+.reveal-delay-5 {
+  --reveal-delay: 400ms;
+}
+
+.float-slow {
+  animation: float-drift 7.5s ease-in-out infinite;
+}
+
+.pulse-soft {
+  animation: soft-pulse 4.6s ease-in-out infinite;
+}
+
+.hover-lift {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 52px rgba(0, 33, 20, 0.12);
+}
+
+.button-sheen {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.button-sheen::after {
+  content: "";
+  position: absolute;
+  inset: -45%;
+  background: linear-gradient(
+    115deg,
+    transparent 25%,
+    rgba(255, 255, 255, 0.28) 48%,
+    transparent 70%
+  );
+  transform: translateX(-130%) skewX(-18deg);
+  transition: transform 820ms ease;
+  pointer-events: none;
+}
+
+.button-sheen:hover::after {
+  transform: translateX(120%) skewX(-18deg);
+}
+
+.nav-underline {
+  position: relative;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.45rem;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  opacity: 0.55;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms ease;
+}
+
+.nav-underline:hover::after,
+.nav-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.spotlight-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at top right, rgba(122, 218, 161, 0.2), transparent 40%);
+  opacity: 0;
+  transition: opacity 240ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+.spotlight-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.focus-glow {
+  transition:
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    background-color 220ms ease;
+}
+
+.focus-glow:focus {
+  transform: translateY(-1px);
+  box-shadow:
+    0 0 0 4px rgba(1, 79, 53, 0.12),
+    0 22px 38px rgba(0, 33, 20, 0.08);
+}
+
 .hero-texture {
   background-image: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png");
   background-repeat: repeat;
   opacity: 0.14;
   mix-blend-mode: screen;
+}
+
+.hero-accent-text {
+  font-style: italic;
+  text-shadow: 0 4px 24px rgba(201, 168, 76, 0.3);
 }
 
 .glass-panel {
@@ -128,5 +312,9 @@ input::placeholder {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .reveal-up {
+    opacity: 1;
   }
 }

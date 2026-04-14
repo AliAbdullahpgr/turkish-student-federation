@@ -15,8 +15,10 @@ export function MissionSection({
             {mission.eyebrow}
           </p>
           <h2 className="max-w-3xl font-headline text-[2.2rem] font-bold leading-tight tracking-[-0.05em] text-primary sm:text-4xl md:text-5xl">
-            Nurturing minds with <span className="text-outline">{mission.emphasisA}</span>,
-            hearts with <span className="text-outline">{mission.emphasisB}</span>.
+            Nurturing minds with{" "}
+            <span className="italic text-secondary">{mission.emphasisA}</span>,
+            hearts with{" "}
+            <span className="italic text-secondary">{mission.emphasisB}</span>.
           </h2>
 
           <div className="mt-6 space-y-5 text-base leading-7 text-muted sm:mt-8 sm:text-lg sm:leading-8">
@@ -27,8 +29,8 @@ export function MissionSection({
         </div>
 
         <div className="relative md:col-span-5">
-          <div className="absolute inset-x-3 bottom-[-1rem] top-6 rounded-[1.8rem] bg-surface-low sm:inset-x-6 sm:bottom-[-1.25rem] sm:top-8 sm:rounded-[2rem]" />
-          <div className="editorial-shadow relative aspect-[11/10] overflow-hidden rounded-[1.8rem] bg-surface-high sm:rounded-[2rem]">
+          <div className="absolute inset-x-3 -bottom-4 top-6 rounded-2xl bg-secondary/10 sm:inset-x-6 sm:-bottom-5 sm:top-8" />
+          <div className="editorial-shadow relative aspect-11/10 overflow-hidden rounded-2xl bg-surface-high">
             <Image
               fill
               alt={mission.image.alt}

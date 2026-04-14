@@ -7,31 +7,36 @@ export function NewsletterSection({
   newsletter: HomePageContent["newsletter"];
 }) {
   return (
-    <section className="py-20 sm:py-24 md:py-32" id={newsletter.id}>
-      <SectionFrame className="max-w-4xl text-center">
-        <h2 className="font-headline text-[2.2rem] font-extrabold tracking-[-0.05em] text-primary sm:text-4xl md:text-5xl">
+    <section
+      className="relative overflow-hidden bg-[linear-gradient(135deg,var(--primary),var(--primary-container))] py-20 text-white sm:py-24 md:py-32"
+      id={newsletter.id}
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(122,218,161,0.15),transparent_50%)]" />
+
+      <SectionFrame className="relative z-10 max-w-4xl text-center">
+        <h2 className="reveal-up font-headline text-[2.2rem] font-extrabold tracking-[-0.05em] text-white sm:text-4xl md:text-5xl">
           {newsletter.title}
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-muted sm:text-lg sm:leading-8">
+        <p className="reveal-up reveal-delay-1 mx-auto mt-4 max-w-2xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
           {newsletter.description}
         </p>
 
-        <div className="glass-panel mt-10 flex flex-col gap-4 rounded-[2rem] px-4 py-4 sm:mt-12 sm:flex-row sm:items-center sm:rounded-full sm:px-5">
+        <div className="reveal-up reveal-delay-2 mt-10 flex flex-col gap-4 rounded-[2rem] border border-white/10 bg-white/8 px-4 py-4 backdrop-blur-sm sm:mt-12 sm:flex-row sm:items-center sm:rounded-full sm:px-5">
           <input
             aria-label="Email address"
-            className="min-w-0 flex-1 rounded-full bg-surface-high px-6 py-4 text-base text-primary outline-none ring-0"
+            className="min-w-0 flex-1 rounded-full bg-white/10 px-6 py-4 text-base text-white outline-none ring-0 placeholder:text-white/50 focus:bg-white/14"
             placeholder={newsletter.placeholder}
             type="email"
           />
           <button
-            className="inline-flex w-full items-center justify-center rounded-full bg-secondary px-8 py-4 font-headline text-sm font-bold text-white shadow-[0_18px_36px_rgba(0,33,20,0.14)] hover:-translate-y-0.5 hover:bg-primary sm:w-auto"
+            className="button-sheen hover-lift inline-flex w-full items-center justify-center rounded-full bg-[#c9a84c] px-8 py-4 font-headline text-sm font-bold text-primary shadow-[0_18px_36px_rgba(0,33,20,0.2)] hover:bg-[#d4b85c] sm:w-auto"
             type="button"
           >
             {newsletter.ctaLabel}
           </button>
         </div>
 
-        <p className="mt-6 font-label text-[0.64rem] uppercase tracking-[0.28em] text-outline">
+        <p className="mt-6 font-label text-[0.64rem] uppercase tracking-[0.28em] text-white/50">
           {newsletter.disclaimer}
         </p>
       </SectionFrame>
