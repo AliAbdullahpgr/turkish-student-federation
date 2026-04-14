@@ -121,40 +121,40 @@ export type HomePageContent = {
 
 export const homePageContent: HomePageContent = {
   brand: {
-    name: "MSL Pakistan",
-    ctaLabel: "Join Leadership",
+    name: "Turkish Student Federation",
+    ctaLabel: "Join the Federation",
   },
   navigation: [
-    { label: "Curriculum", href: "#curriculum" },
+    { label: "Programs", href: "#curriculum" },
     { label: "Impact", href: "#impact" },
     { label: "Community", href: "#community" },
     { label: "Resources", href: "#resources" },
   ],
   hero: {
-    eyebrow: "A Decade of Excellence",
-    headlineStart: "Empowering the",
-    headlineAccent: "Next Generation",
-    headlineEnd: "of Leaders.",
+    eyebrow: "Students, Culture, Leadership",
+    headlineStart: "Building a stronger",
+    headlineAccent: "Turkish Student",
+    headlineEnd: "community.",
     description:
-      "For over 10 years, MSL Pakistan has stood at the intersection of academic rigor and spiritual integrity, fostering a community dedicated to excellence, social welfare, and profound intellectual growth.",
+      "The Turkish Student Federation connects students through academic support, leadership development, cultural programs, and a strong community network designed to help members thrive on campus and beyond.",
     actions: [
       { label: "Explore Programs", href: "#curriculum", variant: "primary" },
-      { label: "Our 10-Year Journey", href: "#impact", variant: "secondary" },
+      { label: "See Our Impact", href: "#impact", variant: "secondary" },
     ],
     image: {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDITwyjDQCGI1TqgrNqO8RklWIpmaLkhS6LqL9VqHkE3t1YBITn0DF8Gv-Gvxc4HryjgyloJiCCOF7ZXHdWcO1iAc8SxswA58Ie6IOMMNqk8-ywxkXbdB-JFyb8pNyMuj3E07qddM9qlidi4fnZN3pzdbAqtptoWbQ5rvaQWoBLG3x7KMbbfek95ESgdWVhVs_khEfd8T7boHUFc7COjzVMGAvYsZaNwgCnQPe7dnIj6U9DWEeevQZA7ULmFcRTO-HBDyO3XrS1xQ",
       alt: "Academic leadership conference with students attending a seminar in a modern hall.",
     },
     statValue: "12k+",
-    statLabel: "Active Volunteers Nationwide",
+    statLabel: "Students and Alumni Reached",
   },
   mission: {
     eyebrow: "Our Mission & Vision",
-    emphasisA: "wisdom",
-    emphasisB: "faith",
+    emphasisA: "identity",
+    emphasisB: "opportunity",
     paragraphs: [
-      "MSL Pakistan was founded on the belief that true leadership is rooted in a holistic understanding of one's heritage and a proactive commitment to societal betterment. We do not just educate; we cultivate character.",
-      "By integrating academic excellence with the timeless values of Islamic heritage, we provide a platform where students and professionals alike can find their voice and contribute meaningfully to the progress of Pakistan.",
+      "The Turkish Student Federation exists to create a confident, connected, and capable student body. We help students build friendships, strengthen leadership skills, and stay rooted in a shared cultural identity while pursuing academic excellence.",
+      "Through events, mentorship, advocacy, and practical student services, we create an environment where Turkish students can grow, contribute, and represent their community with clarity and purpose.",
     ],
     image: {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuAIzu76_U9WWpm_MbssbQxKfoR7FgqgdJhfQzw-G-SdvXyYFYq2BYYq_7iAu4GCM5L3F4hkmDNW3Bcniak0LMbR0J73fEPe5DH3ehQoKn1xg1tvacu1QRn1oLZ-lz17hUBOYvNoZ2jyS1tCtzc5ZgPAVS3zlO6ZDs38SudBuiPdYFe0Hmub__O6uJoWYQf7GOV1xlWKdzqvLibrAUo_YBz5VYJ8kpUoWudOpsbjHSoH-lS5Q0lYyiad9JHydj8LZTpxWVI6FLKzkg",
@@ -166,76 +166,76 @@ export const homePageContent: HomePageContent = {
     items: [
       {
         icon: "movie",
-        title: "Multimedia production",
+        title: "Media & Storytelling",
         description:
-          "Producing high-quality educational content, documentaries, and digital campaigns that challenge narratives and inspire change across digital platforms.",
+          "Creating student-focused media, interviews, campaigns, and digital stories that highlight Turkish student voices, campus life, and community achievements.",
       },
       {
         icon: "groups",
         title: "Seminars & Workshops",
         description:
-          "Hosting intellectual discourses and skill-building workshops led by industry leaders and scholars to prepare youth for global challenges.",
+          "Hosting leadership sessions, career talks, and practical workshops led by mentors, alumni, and professionals who understand student ambitions.",
       },
       {
         icon: "auto_stories",
-        title: "Quranic Foundations",
+        title: "Academic Support",
         description:
-          "Weekly interactive sessions focusing on the practical application of Quranic wisdom in contemporary professional and personal life.",
+          "Providing study circles, peer guidance, and academic resources that help members stay consistent, prepared, and connected throughout the year.",
       },
       {
         icon: "sports_soccer",
-        title: "Youth Athletics",
+        title: "Sports & Campus Life",
         description:
-          "Promoting physical well-being and teamwork through organized sports tournaments and competitive athletic programs across universities.",
+          "Encouraging teamwork, health, and belonging through tournaments, outings, and student activities that strengthen campus friendships.",
       },
       {
         icon: "balance",
-        title: "Advocacy & Rights",
+        title: "Student Advocacy",
         description:
-          "Protecting the interests and rights of students within academic institutions, ensuring a fair and equitable learning environment for all.",
+          "Representing student concerns, strengthening campus participation, and making sure Turkish students have a visible and constructive voice.",
       },
       {
         icon: "volunteer_activism",
-        title: "Social Welfare",
+        title: "Community Service",
         description:
-          "Extensive humanitarian efforts ranging from blood donation camps to disaster relief and supporting underprivileged communities nationwide.",
+          "Organizing service initiatives, support drives, and collaborative volunteering that turn student energy into visible benefit for the wider community.",
       },
     ],
   },
   impact: {
     id: "impact",
     items: [
-      { value: "200+", label: "Weekly Quran Classes" },
-      { value: "100k+", label: "Seminar Attendees" },
-      { value: "5k+", label: "Blood Bags Donated" },
-      { value: "20+", label: "Donation Drives" },
-      { value: "130+", label: "Universities Engaged" },
-      { value: "12k+", label: "Active Volunteers" },
+      { value: "200+", label: "Student Sessions Hosted" },
+      { value: "100k+", label: "Event Reach" },
+      { value: "5k+", label: "Students Supported" },
+      { value: "20+", label: "Community Campaigns" },
+      { value: "130+", label: "Campus Partnerships" },
+      { value: "12k+", label: "Federation Network" },
     ],
   },
   featuredVideo: {
     id: "resources",
-    eyebrow: "Featured Video Series",
-    title: "Taleem Se Takmeel: Journey to Mastery",
+    eyebrow: "Featured Federation Story",
+    title: "Inside the Turkish Student Federation",
     description:
-      "Join our flagship digital series exploring the depths of knowledge, ethics, and leadership in the modern world. We bridge the gap between academic theory and spiritual fulfillment.",
+      "A closer look at the students, mentors, events, and initiatives shaping the Turkish Student Federation across campuses and communities.",
     image: {
       src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBITqocON7c0fCeyQI1HhIa2gCUm0tJwYsfIrrz2jcsQiqjcHCgxCCaGkv2_k6ZQNQbOgESWb7M9ps7z6vHWrPF-ZMi7ouKbz_XxWddebIgEM8qnPV4_0sFve9IRpmuoYfmAiHcihgIvPf5DR5dRQxIBhgugrZ9v07BKrt2OkL6mgLEBENvinX2rmitr-1qpharV55DX8y0GGGCU5-c_hJuHdM4-ge8NyzvZIDXaU0ATAqwMm6lRVzSmdKLB_fk5RLtTtQzFMra6A",
       alt: "Scholar speaking in a cinematic studio setting for the Taleem Se Takmeel series.",
     },
-    ctaLabel: "Follow Youtube Channel",
+    ctaLabel: "Watch the Story",
   },
   updates: {
     id: "community",
     title: "Latest Updates",
-    description: "Insights and news from our community hub.",
-    ctaLabel: "View All Stories",
+    description: "News, events, and highlights from the federation community.",
+    ctaLabel: "View More Updates",
     items: [
       {
         category: "Community News",
-        title: "The Role of Youth in Pakistan's Economic Stability",
+        title: "How Student Leadership Strengthens Turkish Communities Abroad",
         excerpt:
-          "ہمیں اپنی ذمہ داریوں کا احساس کرنا ہوگا، ملک کی تقدیر ہمارے ہاتھوں میں ہے۔",
+          "Federation members are creating stronger campus networks, better support systems, and more confident student leadership pipelines.",
         date: "Nov 24, 2024",
         readTime: "5 min read",
         image: {
@@ -245,9 +245,9 @@ export const homePageContent: HomePageContent = {
       },
       {
         category: "Events",
-        title: "Annual Leadership Summit 2024 Highlights",
+        title: "Annual Turkish Student Leadership Summit Highlights",
         excerpt:
-          "A gathering of 500+ leaders across various sectors discussing the future of ethical leadership in South Asia.",
+          "Students, alumni, and guest speakers gathered to discuss mentorship, representation, professional growth, and campus organizing.",
         date: "Nov 18, 2024",
         readTime: "8 min read",
         image: {
@@ -256,59 +256,61 @@ export const homePageContent: HomePageContent = {
         },
       },
       {
-        category: "Education",
-        title: "Transform Your Professional Ethics",
-        excerpt: "علم صرف کتابوں تک محدود نہیں، بلکہ یہ عمل کا دوسرا نام ہے۔",
+        category: "Programs",
+        title: "Mentorship Applications Open for New Members",
+        excerpt:
+          "Join a structured network of senior students and alumni offering guidance on academics, campus life, and career direction.",
         date: "Nov 12, 2024",
         readTime: "3 min read",
-        promoText: "Register for the Upcoming Quranic Wisdom Workshop",
+        promoText: "Apply for the Upcoming Federation Mentorship Program",
       },
     ],
   },
   curriculum: {
     id: "curriculum",
-    title: "Islamic Matters",
-    description: "Dive deep into the nuances of faith, jurisprudence, and contemporary ethics.",
-    instructor: "Mufti Yousaf Taibi",
+    title: "Student Programs",
+    description:
+      "Explore practical programs built around leadership, academic growth, mentorship, and community participation.",
+    instructor: "Federation Mentors",
     highlights: [
-      "Expert Led Curriculum",
-      "Certification Provided",
-      "Hybrid Learning Models",
+      "Leadership Development",
+      "Mentorship Network",
+      "Campus-to-Career Support",
     ],
-    ctaLabel: "Enroll Now",
+    ctaLabel: "Join a Program",
     items: [
       {
         image: {
           src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDqxanbn1F212GF5nTylnBBhOqi718yquiIUn68fQNnFKmqcNaKLehySHHjCuB_l2nSleKkXsKQCDZSyEN9MlMZhB3ajmaqffbOuWZvXi9z0C8FQtH-AhwkrjZLFINg9JjYiYzaWLgOjWI5VQOM4rGB-xmEGzntrm3AEE2eKKpeXgMqI6FXRhNRRNy4xoN3D8o5bIiHYNhDpbZNjtHI-RzFNV3clVYRKcz12ZUb5EsgZGFsECPSXP6kD_dJYDPFq2SzLGkb2YeXNQ",
           alt: "Books and a laptop arranged on a desk for course study.",
         },
-        title: "Fiqh for Professionals",
+        title: "Mentorship for Students",
         description:
-          "Navigating modern finance and ethics in the light of Islamic jurisprudence.",
+          "Connect with senior students and alumni for guidance on academics, confidence, and student life.",
       },
       {
         image: {
           src: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_1dcrcfWxy42nx01U2zxUhWDTn6b4RdbRBSi1IDtf2BsNcKrbAGOoxwEA_hpoC2DTxfFt2QnMqGoCNIzYVdqCu3jqUngShNf0Vuhm-L-r7dv2hcG0_bt0XI_JTS9Mw9Stltq8mhyWdCxOBLayD_MkTKFE9Ig_SCGNWifiCugnH5tElR4KRsGc7C04Ge3S-QiwCEs7o88cKKRbq6hTd5XH1q5YBjULqst303zLIGk5TThsxnNDscu6VMI5g1hg2Tt03ykJPzw_CA",
           alt: "A study group collaborating in a modern library setting.",
         },
-        title: "History of Islamic Leadership",
+        title: "Leadership & Representation",
         description:
-          "An in-depth look at the governance models of the early centuries.",
+          "Develop practical leadership skills for organizing events, representing students, and building lasting community impact.",
       },
     ],
   },
   newsletter: {
     id: "join",
-    title: "Join Our Community",
+    title: "Join the Federation",
     description:
-      "Receive weekly scholarly insights, event invitations, and volunteer opportunities directly in your inbox.",
-    placeholder: "Your academic or professional email",
-    ctaLabel: "Subscribe Now",
-    disclaimer: "We respect your privacy. No spam, only substance.",
+      "Receive event announcements, mentorship opportunities, student resources, and federation updates directly in your inbox.",
+    placeholder: "Your student email",
+    ctaLabel: "Join Now",
+    disclaimer: "We respect your privacy. No spam, only useful updates.",
   },
   footer: {
     description:
-      "MSL Pakistan is a non-profit organization dedicated to fostering leadership, academic excellence, and social welfare among the youth of Pakistan through values-based education.",
+      "The Turkish Student Federation is a student-centered organization focused on leadership, belonging, academic growth, and meaningful community life.",
     socialIcons: ["public", "alternate_email", "call"],
     groups: [
       {
@@ -321,7 +323,7 @@ export const homePageContent: HomePageContent = {
       },
     ],
     copyright:
-      "\u00A9 2024 MSL Pakistan. Editorial Excellence in Community Leadership.",
-    location: "Made with purpose in Lahore, Pakistan",
+      "\u00A9 2024 Turkish Student Federation. Built for student leadership and community.",
+    location: "Built for Turkish students everywhere",
   },
 };

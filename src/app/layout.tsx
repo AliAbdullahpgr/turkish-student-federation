@@ -21,9 +21,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MSL Pakistan | Editorial Excellence in Community Leadership",
+  title: "Turkish Student Federation | Student Leadership and Community",
   description:
-    "Frontend-first homepage for MSL Pakistan, shaped from the repository design brief and editorial landing page reference.",
+    "Homepage for Turkish Student Federation, focused on student leadership, academic support, community life, and cultural belonging.",
 };
 
 export default function RootLayout({

@@ -1,4 +1,24 @@
 import type { ReactNode } from "react";
+import type { LucideProps } from "lucide-react";
+import {
+  Award,
+  BookOpenText,
+  CirclePlay,
+  Film,
+  Globe,
+  GraduationCap,
+  HandCoins,
+  HeartHandshake,
+  Mail,
+  Menu,
+  Phone,
+  Play,
+  Scale,
+  ShieldCheck,
+  Users,
+  Volleyball,
+  X,
+} from "lucide-react";
 import type { HeroAction } from "@/app/home-content";
 
 export function cx(...classes: Array<string | false | null | undefined>) {
@@ -19,6 +39,26 @@ export function SectionFrame({
   );
 }
 
+const iconMap: Record<string, React.ComponentType<LucideProps>> = {
+  alternate_email: Mail,
+  auto_stories: BookOpenText,
+  balance: Scale,
+  call: Phone,
+  close: X,
+  groups: Users,
+  menu: Menu,
+  movie: Film,
+  play_arrow: Play,
+  play_circle: CirclePlay,
+  public: Globe,
+  sports_soccer: Volleyball,
+  verified: ShieldCheck,
+  volunteer_activism: HeartHandshake,
+  school: GraduationCap,
+  award: Award,
+  hand_coins: HandCoins,
+};
+
 export function MaterialIcon({
   name,
   className,
@@ -26,11 +66,13 @@ export function MaterialIcon({
   name: string;
   className?: string;
 }) {
-  return (
-    <span aria-hidden="true" className={cx("material-symbols-outlined", className)}>
-      {name}
-    </span>
-  );
+  const Icon = iconMap[name];
+
+  if (!Icon) {
+    return null;
+  }
+
+  return <Icon aria-hidden="true" className={className} strokeWidth={1.9} />;
 }
 
 export function ActionLink({
